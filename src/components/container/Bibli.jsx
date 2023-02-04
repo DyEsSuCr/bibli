@@ -16,9 +16,8 @@ export function Blibli() {
   }, [])
 
   // NOTE: POST
-  const creGallery = (data) => {
-    e.preventDefault()
-    console.log('Ingreso la data')
+  const createGallery = (data) => {
+    console.log(data)
   }
 
   // NOTE: GET
@@ -39,7 +38,7 @@ export function Blibli() {
   return (
     <div className="min-w-full min-h-screen">
       <h1>BIBLI</h1>
-      <Forn create={creGallery} />
+      <Forn createGallery={createGallery} updGallery={updGallery} />
     </div>
   )
 }
