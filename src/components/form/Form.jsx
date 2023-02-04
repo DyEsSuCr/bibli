@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { Input } from './Input'
 
-export function Forn({ createGallery, updGallery }) {
+export function Form({ createGallery, updGallery }) {
   const initialForm = {
     id: null,
     title: '',

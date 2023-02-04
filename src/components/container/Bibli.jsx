@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
-import { Forn } from '../form/Form'
+
+import { Form } from '../form/Form'
+import { Gallery } from '../gallery/Gallery'
 
 export function Blibli() {
   const [gallery, setGallery] = useState([])
@@ -40,7 +42,8 @@ export function Blibli() {
   return (
     <div className="min-w-full min-h-screen">
       <h1>BIBLI</h1>
-      <Forn createGallery={createGallery} updGallery={updGallery} />
+      <Form createGallery={createGallery} updGallery={updGallery} />
+      <Gallery />
     </div>
   )
 }
