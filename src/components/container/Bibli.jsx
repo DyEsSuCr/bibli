@@ -8,16 +8,18 @@ export function Blibli() {
 
   // NOTE: Crea El LocalStorage
   useEffect(() => {
-    if (!isLocalGallery) {
-      localStorage.setItem('gallery', JSON.stringify(gallery))
-    } else {
-      setGallery(isLocalGallery)
-    }
+    if (!isLocalGallery) localStorage.setItem('gallery', JSON.stringify(gallery))
+    else setGallery(isLocalGallery)
   }, [])
 
   // NOTE: POST
   const createGallery = (data) => {
-    console.log(data)
+    data.id = crypto.randomUUID()
+
+    // RECORD: Hacer validaciones
+
+    setGallery([...gallery, data])
+    localStorage.setItem('gallery', JSON.stringify([...gallery, data]))
   }
 
   // NOTE: GET
