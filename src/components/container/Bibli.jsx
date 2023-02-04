@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Forn } from '../form/Form'
 
 export function Blibli() {
   const [gallery, setGallery] = useState([])
@@ -14,9 +15,31 @@ export function Blibli() {
     }
   }, [])
 
+  // NOTE: POST
+  const creGallery = (data) => {
+    e.preventDefault()
+    console.log('Ingreso la data')
+  }
+
+  // NOTE: GET
+  const getGallery = (data) => {
+    console.log('Obtener favoritos')
+  }
+
+  // NOTE: PUT
+  const updGallery = (data, id) => {
+    console.log('Se actualizo')
+  }
+
+  // NOTE: DELETE
+  const delGallery = (id) => {
+    console.log('Elimina post')
+  }
+
   return (
     <div className="min-w-full min-h-screen">
       <h1>BIBLI</h1>
+      <Forn create={creGallery} />
     </div>
   )
 }
