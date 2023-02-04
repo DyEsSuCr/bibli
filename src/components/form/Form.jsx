@@ -1,6 +1,7 @@
+import { createPortal } from 'react-dom'
 import { useState } from 'react'
 
-import { Input } from './Input'
+import { Modal } from './Modal'
 
 export function Form({ createGallery, updGallery }) {
   const initialForm = {
@@ -17,6 +18,7 @@ export function Form({ createGallery, updGallery }) {
   }
 
   const [form, setForm] = useState(initialForm)
+  const [visible, Setvisible] = useState(true)
 
   const handleChange = (e) => {
     setForm({
@@ -35,41 +37,18 @@ export function Form({ createGallery, updGallery }) {
     }
 
     setForm(initialForm)
+    Setvisible(!visible)
   }
 
   return (
-    <div className="bg-gray-600 max-w-screen-md p-4">
-      <form className="flex flex-col gap-4">
-        <Input type={'text'} name={'title'} myHandleChange={(e) => handleChange(e)} value={form.title} />
-        <Input
-          type={'text'}
-          name={'subtitle'}
-          myHandleChange={(e) => handleChange(e)}
-          value={form.subtitle}
-        />
-        <Input
-          type={'url'}
-          name={'front_page'}
-          myHandleChange={(e) => handleChange(e)}
-          value={form.front_page}
-        />
-        <Input type={'number'} name={'pages'} myHandleChange={(e) => handleChange(e)} value={form.pages} />
-        <Input
-          type={'date'}
-          name={'publiched_date'}
-          myHandleChange={(e) => handleChange(e)}
-          value={form.publiched_date}
-        />
-        <Input type={'text'} name={'gender'} myHandleChange={(e) => handleChange(e)} value={form.gender} />
-        <Input type={'text'} name={'author'} myHandleChange={(e) => handleChange(e)} value={form.author} />
-        <Input
-          type={'text'}
-          name={'lenguaje'}
-          myHandleChange={(e) => handleChange(e)}
-          value={form.lenguaje}
-        />
-        <input type="submit" onClick={handleSubmit} />
-      </form>
-    </div>
+    <>
+      <button onClick={() => Setvisible(!visible)}>MOdal</button>
+
+      {visible &&
+        createPortal(
+          <Modal form={form} handleChange={handleChange} handleSubmit={handleSubmit} />,
+          document.getElementById('modal-form')
+        )}
+    </>
   )
 }
