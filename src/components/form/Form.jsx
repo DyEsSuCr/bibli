@@ -18,7 +18,7 @@ export function Form({ createGallery, updGallery }) {
   }
 
   const [form, setForm] = useState(initialForm)
-  const [visible, Setvisible] = useState(true)
+  const [visible, Setvisible] = useState(false)
 
   const handleChange = (e) => {
     setForm({
@@ -42,7 +42,7 @@ export function Form({ createGallery, updGallery }) {
 
   return (
     <>
-      <button onClick={() => Setvisible(!visible)}>MOdal</button>
+      <button onClick={() => Setvisible(!visible)}>Add book</button>
 
       {visible &&
         createPortal(

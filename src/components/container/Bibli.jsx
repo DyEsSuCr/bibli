@@ -18,6 +18,8 @@ export function Blibli() {
   const createGallery = (data) => {
     data.id = crypto.randomUUID()
 
+    window.alert(`${data.title}: fue creado con exito`)
+
     // RECORD: Hacer validaciones
 
     setGallery([...gallery, data])
@@ -25,8 +27,8 @@ export function Blibli() {
   }
 
   // NOTE: GET
-  const getGallery = (data) => {
-    console.log('Obtener favoritos')
+  const getGallery = () => {
+    return gallery
   }
 
   // NOTE: PUT
@@ -41,9 +43,8 @@ export function Blibli() {
 
   return (
     <div className="min-w-full min-h-screen">
-      <h1>BIBLI</h1>
       <Form createGallery={createGallery} updGallery={updGallery} />
-      <Gallery />
+      <Gallery getGallery={getGallery} gallery={gallery} />
     </div>
   )
 }

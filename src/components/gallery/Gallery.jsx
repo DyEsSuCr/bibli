@@ -1,10 +1,11 @@
 import { Book } from './Book'
 
-export function Gallery() {
+export function Gallery({ gallery }) {
   return (
     <div>
-      <h1>Gallery</h1>
-      <Book />
+      {gallery.map((book) => (
+        <Book key={book.id} book={book} />
+      ))}
     </div>
   )
 }
