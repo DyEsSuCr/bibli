@@ -13,7 +13,13 @@ export function Book({ book }) {
       <p>{gender}</p>
       <p>{author}</p>
       <p>{lenguaje}</p>
-      <p>{fav ? <FaHeart className="text-red-600" /> : <FaHeart />}</p>
+      <p>
+        {fav ? (
+          <FaHeart className="text-red-600 duration-500 hover:text-black cursor-pointer" />
+        ) : (
+          <FaHeart className="duration-500 hover:text-red-600 cursor-pointer" />
+        )}
+      </p>
     </div>
   )
 }
