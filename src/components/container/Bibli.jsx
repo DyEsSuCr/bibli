@@ -18,8 +18,6 @@ export function Blibli() {
   const createGallery = (data) => {
     data.id = crypto.randomUUID()
 
-    window.alert(`${data.title}: fue creado con exito`)
-
     // RECORD: Hacer validaciones
 
     setGallery([...gallery, data])
@@ -27,8 +25,16 @@ export function Blibli() {
   }
 
   // NOTE: GET
-  const getGallery = () => {
-    return gallery
+  const getGallery = (noFav = [], Fav = []) => {
+    gallery.filter((books) => {
+      if (books.fav === false) noFav.push(books)
+      else Fav.push(books)
+    })
+
+    return {
+      noFav,
+      Fav,
+    }
   }
 
   // NOTE: PUT

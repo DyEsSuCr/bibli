@@ -27,6 +27,13 @@ export function Form({ createGallery, updGallery }) {
     })
   }
 
+  const handleChecked = (e) => {
+    setForm({
+      ...form,
+      [e.target.name]: e.target.checked,
+    })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -46,7 +53,12 @@ export function Form({ createGallery, updGallery }) {
 
       {visible &&
         createPortal(
-          <Modal form={form} handleChange={handleChange} handleSubmit={handleSubmit} />,
+          <Modal
+            form={form}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+            handleChecked={handleChecked}
+          />,
           document.getElementById('modal-form')
         )}
     </>

@@ -1,6 +1,6 @@
 import { Input } from './Input'
 
-export function Modal({ form, handleChange, handleSubmit }) {
+export function Modal({ form, handleChange, handleSubmit, handleChecked }) {
   return (
     <div className="bg-gray-600 max-w-screen-md p-4 absolute top-0 left-0 right-0 mx-auto">
       <form className="flex flex-col">
@@ -40,6 +40,7 @@ export function Modal({ form, handleChange, handleSubmit }) {
           myHandleChange={(e) => handleChange(e)}
           value={form.lenguaje}
         />
+        <input type="checkbox" name="fav" onChange={handleChecked} value={form.fav} />
         <input type="submit" onClick={handleSubmit} />
       </form>
     </div>
