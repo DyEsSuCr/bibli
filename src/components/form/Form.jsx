@@ -34,6 +34,19 @@ export function Form({ createGallery, updGallery }) {
     })
   }
 
+  const handleFile = (e) => {
+    const file = e.target.files[0]
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(file)
+
+    fileReader.addEventListener('load', (e) => {
+      setForm({
+        ...form,
+        front_page: e.target.result,
+      })
+    })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -58,6 +71,7 @@ export function Form({ createGallery, updGallery }) {
             handleChange={handleChange}
             handleSubmit={handleSubmit}
             handleChecked={handleChecked}
+            handleFile={handleFile}
           />,
           document.getElementById('modal-form')
         )}
